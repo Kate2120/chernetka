@@ -1,0 +1,17 @@
+.menu {
+  background-color: #715f65;
+  .container {
+    max-width: 1170px;
+    margin: auto;
+    ul {
+        display: flex;
+        justify-content: start;
+      li {
+        color: #fee2e3;
+        list-style-type: none;
+        margin-right: 15px;
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,18 +1,15 @@
-import React from "react";
-import styles from './LoginPage.module.scss';
-export default function LoginPage() {
+import styles from './LoginForm.module.scss';
+function LoginForm(){
     return (
-        <body className={styles.body}>
-        <div className={styles.loginWindow}>
-            <form>
+        <>
+        <form>
                 <label>
                     Для входа в админ панель введите пароль
                 <input className={styles.input}/>
                 </label>
                 <button>Войти</button>
             </form>
-
-        </div>
-        </body>
+        </>
     )
 }
+export default LoginForm;

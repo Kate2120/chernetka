@@ -1,0 +1,25 @@
+form {
+  display: block;
+  width: 250px;
+
+  .input {
+    box-sizing: border-box;
+    margin: 10px auto;
+    width: 100%;
+    border: 1px solid #8498af;
+    padding: 10px;
+  }
+
+  button {
+    display: inline-block;
+    margin: auto;
+    width: 100%;
+    line-height: 30px;
+    padding: 5px;
+    background-color: #f5a3b7;
+    border: none;
+    border-radius: 5px;
+    color: #715f65;
+    cursor: pointer;
+  }
+}
