@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {Types} from './Types';
-import {User, GetUsersSucsess} from "./interfacies";
+import {User} from "./interfacies";
 import {fetchUsersSuccess} from './actions';
-import {getUsers} from '../../Api/api';
+import {fetchUsers} from '../../Api/api';
 
 function* fetchUsersWorker(){
     try {
-        const users = (yield call(getUsers)) as User[];
+        const users = (yield call(fetchUsers)) as User[];
         yield put(fetchUsersSuccess(users));
       } catch {}
 }

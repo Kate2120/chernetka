@@ -31,5 +31,5 @@ export interface Request {
 }
 export interface GetUsersSucsess{
     type: string,
-    payload?: User[];
+    payload: User[];
 }

@@ -1,7 +1,15 @@
+.h1{
+  max-width: 1170px;
+  text-align: center;
+  margin: auto;
+
 .container {
   max-width: 1170px;
   margin: auto;
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   text-align: center;
   color: #8498af;
   .card {
@@ -9,6 +17,19 @@
     height: 300px;
     border-radius: 5px;
     background-color: white;
+    margin: 10px 5px;
+    padding: 5px 5px;
+    .picture{
+      width: 180px;
+      height: 180px;
+      margin: auto;
+      border-radius: 10px;
+      img{
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
   }
   .card.male {
     background-color: #bfb9cf;
@@ -18,4 +39,4 @@
   }
   
 }
-
+}

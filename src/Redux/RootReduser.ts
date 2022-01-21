@@ -3,7 +3,7 @@ import Reduser from './Reduser';
 
 
 const rootReducer = combineReducers({
-    reduser: Reduser,
+    users: Reduser,
     
 });
 
