@@ -1,8 +1,9 @@
-.h1{
+.h1 {
   max-width: 1170px;
   text-align: center;
   margin: auto;
-
+  color: #8498af;
+}
 .container {
   max-width: 1170px;
   margin: auto;
@@ -12,31 +13,125 @@
   flex-wrap: wrap;
   text-align: center;
   color: #8498af;
-  .card {
+  .male,
+  .female {
     width: 200px;
-    height: 300px;
+    height: 350px;
     border-radius: 5px;
-    background-color: white;
     margin: 10px 5px;
     padding: 5px 5px;
-    .picture{
+
+    .picture {
       width: 180px;
       height: 180px;
-      margin: auto;
+      margin: 5px auto;
       border-radius: 10px;
-      img{
+      img {
         width: 100%;
         height: auto;
         border-radius: 10px;
       }
     }
+    .preview_info {
+      font-size: 18px;
+      color: #715f65;
+      margin-bottom: 10px;
+    }
+    .button {
+      width: 130px;
+      height: 40px;
+      background-color: #715f65;
+      margin: 15px auto 0px;
+
+      line-height: 40px;
+      border-radius: 5px;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: #fee2e3;
+      }
+    }
   }
-  .card.male {
-    background-color: #bfb9cf;
-  }
-  .card.female {
+  .female {
     background-color: #f5a3b7;
   }
-  
+  .male {
+    background-color: #bfb9cf;
+  }
 }
+
+.infoblock {
+  max-width: 1170px;
+  margin: auto;
+  padding: 15px;
+  .male,
+  .female {
+    width: 100%;
+    height: 400px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 5px 5px;
+    .rowInfo {
+      width: 100%;
+      height: 70%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .image{
+        width: 45%;
+        height: 100%;
+        margin-left: 20px;
+        margin-top: 10px;
+        
+        img{
+          width: 50%;
+          height: auto;
+          border-radius: 50%;
+        }
+      }
+      .info{
+        color: #715f65;
+        width: 50%;
+        height: 100%;
+        h2{
+          font-size: 40px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+        p{
+          font-size: 20px;
+          span{
+            font-size: 26px;
+            font-weight: 500;
+          }
+        }
+      }
+      
+    }
+    .rowButton {
+      padding-top: 20px;
+      width: 100%;
+      height: 30%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .button{
+        width: 200px;
+        height: 60px;
+        background-color: #715f65;
+        color: #bfb9cf;
+        border-radius: 5px;
+        text-align: center;
+        margin-right: 5px;
+        margin-left: 5px;
+        line-height: 60px;
+      }
+    }
+  }
+  .female {
+    background-color: #f5a3b7;
+  }
+  .male {
+    background-color: #bfb9cf;
+  }
 }

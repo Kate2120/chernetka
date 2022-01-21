@@ -2,6 +2,6 @@ export enum Path {
     HOME = '/',
     LOGIN = '/login',
     USERS = '/users',
-    USER = '/users/:id'
+    USER_INFO = '/users/:id'
 
 }
