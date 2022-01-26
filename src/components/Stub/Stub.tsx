@@ -2,7 +2,6 @@ import styles from './Stub.module.scss';
 import * as React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getAuth, getUsers} from "../../Redux/selectors";
-import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {fetchUsersRequest} from "../../Redux/Actions/actions";
 import UsersList from "../UsersList/UsersList";

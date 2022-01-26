@@ -155,13 +155,15 @@
         width: 200px;
         height: 60px;
         background-color: #715f65;
-
         border-radius: 5px;
         text-align: center;
         margin-right: 5px;
         margin-left: 5px;
         line-height: 60px;
 
+      }
+      .inactive{
+        display: none;
       }
     }
   }

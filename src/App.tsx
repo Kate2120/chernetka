@@ -7,6 +7,7 @@ import UserInfo from "./Pages/UserInfo/UserInfo";
 import {useSelector} from "react-redux";
 import {getAuth} from "./Redux/selectors";
 import Header from "./components/Header/Header";
+import React from "react";
 
 
 function App() {
@@ -20,9 +21,8 @@ function App() {
 
     return (
         <div>
-            {isLogged ? <Header /> : <LoginPage/>}
+            {isLogged ? <Header/> : ''}
             <Routes>
-
                 <Route path={Path.LOGIN} element={(!isLogged) ? <LoginPage/> : <Navigate to={Path.HOME}/>}/>
                 <Route path={Path.HOME} element={isLogged ? <Home/> : <Navigate to={Path.LOGIN}/>}/>
                 <Route path={Path.USER_INFO} element={isLogged ? <UserInfo/> : <Navigate to={Path.LOGIN}/>}/>

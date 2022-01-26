@@ -1,10 +1,8 @@
 import styles from "./Users.module.scss";
 import { Picture, UserName, DateBirth } from "../../Redux/Actions/interfacies";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { getUsers } from "../../Redux/selectors";
-import { fetchUsersRequest } from "../../Redux/Actions/actions";
 import {Link, useParams} from "react-router-dom";
-import { useEffect, useState } from "react";
 import * as React from "react";
 interface Props {
   image: Picture;
@@ -22,12 +20,11 @@ function UserCard() {
     currentId = 15;
   }
   let users = useSelector(getUsers);
-
-  if(currentId === 0){
+  /*if(currentId === 0){
     currentId = 1;
   } else if(currentId === 19){
     currentId = 18;
-  }
+  }*/
   let currentUser = users[Number(id.id)];
   let next = users[Number(id.id) + 1];
 
@@ -73,10 +70,10 @@ function UserCard() {
           </div>
         </div>
         <div className={styles.rowButton}>
-          <Link to={`/user/${currentId - 1}`}><div className={styles.button}>
+          <Link to={currentId > 0 ? `/user/${currentId - 1}` : ''}><div className={currentId > 0 ? styles.button: styles.inactive}>
             Предыдущий
               </div></Link>
-          <Link to={`/user/${currentId + 1}`}><div className={styles.button} >
+          <Link to={currentId < users.length -1 ?`/user/${currentId + 1}` : ''}><div className={currentId < users.length -1 ? styles.button : styles.inactive} >
             Следующий
               </div></Link>
         </div>
