@@ -1,16 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../Redux/selectors";
+import {getAuth, getUsers} from "../../Redux/selectors";
 import UserCardPreview from "./UserCardPreview";
 import styles from "./Users.module.scss";
 import { fetchUsersRequest } from "../../Redux/Actions/actions";
 
 export default function Users() {
   const dispatch = useDispatch();
+    let auth = useSelector(getAuth);
+    console.log(auth);
   let users = useSelector(getUsers);
   console.log(users);
   useEffect(() => {
+      if(users.length === 0){
     dispatch(fetchUsersRequest());
+      }
   }, [dispatch]);
   let background = "";
   return (

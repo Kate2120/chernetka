@@ -38,7 +38,8 @@ export interface User {
 }
 export interface State {
     users: {
-        users:User[]
+        users:User[],
+        auth: dataAuth,
     },
 }
 
@@ -51,4 +52,13 @@ export interface Request {
 export interface GetUsersSucsess{
     type: string,
     payload: User[];
+}
+export interface dataAuth{
+    name: string,
+    password: string,
+    confirmPassword: string,
+}
+export  interface authRequest{
+    type: string,
+    payload: dataAuth,
 }

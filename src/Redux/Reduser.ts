@@ -4,12 +4,15 @@ import {Types} from './Actions/Types';
 
 const initialState  = {
     users: [],
+    auth: null
 }
 const Reduser = (state = initialState, action: Action) => {
-    console.log(action.payload);
+
 switch(action.type){
-    case Types.GET_USERS_SUCSESS:
+    case Types.GET_USERS_SUCCESS:
         return { ...state, users: action.payload };
+    case Types.GET_DATA_AUTH_SUCCESS:
+        return { ...state, auth: action.payload};
     default:
       return state;
 }

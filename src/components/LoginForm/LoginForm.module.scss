@@ -1,13 +1,24 @@
-form {
+.form {
   display: block;
   width: 250px;
+  text-align: left;
 
-  .input {
-    box-sizing: border-box;
-    margin: 10px auto;
-    width: 100%;
-    border: 1px solid #8498af;
-    padding: 10px;
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  label {
+    text-align: left;
+
+    .input {
+
+      box-sizing: border-box;
+      margin: 10px auto;
+      width: 100%;
+      border: 1px solid #8498af;
+      padding: 10px;
+    }
   }
 
   button {
@@ -21,5 +32,8 @@ form {
     border-radius: 5px;
     color: #715f65;
     cursor: pointer;
+  }
+  .error{
+    color: #f64e72;
   }
 }

@@ -37,7 +37,7 @@ export default function UserCard(props: Props) {
         {props.birth.age + " years old"}
       </div>
       <div className={styles.button} id={props.id}>
-        <Link to={`/users/${props.id}`}>Подробнее</Link>
+        <Link to={`/user/${props.id}`}>Подробнее</Link>
       </div>
     </div>
   );

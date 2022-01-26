@@ -1,0 +1,49 @@
+.info{
+  display: flex;
+  justify-content: space-between;
+.items {
+  width: 80%;
+  border: 0.5px solid #715f65;
+
+  .item {
+    padding: 2px;
+    border-bottom: 0.5px solid #715f65;
+
+    a {
+      display: flex;
+      justify-content: start;
+      text-decoration: none;
+      color: #715f65;
+
+      .photoPreview {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .item:hover {
+    background-color: #bdaaac;
+  }
+}
+.photo {
+  width: 40%;
+  height: auto;
+  padding: 20px;
+
+  img {
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+
+  }
+}
+}

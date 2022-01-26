@@ -3,8 +3,9 @@ import { Picture, UserName, DateBirth } from "../../Redux/Actions/interfacies";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../Redux/selectors";
 import { fetchUsersRequest } from "../../Redux/Actions/actions";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
+import * as React from "react";
 interface Props {
   image: Picture;
   name: UserName;
@@ -16,14 +17,28 @@ interface Props {
 
 function UserCard() {
   const id = useParams();
+  let currentId = Number(id.id);
+  if(currentId === undefined){
+    currentId = 15;
+  }
   let users = useSelector(getUsers);
+
+  if(currentId === 0){
+    currentId = 1;
+  } else if(currentId === 19){
+    currentId = 18;
+  }
   let currentUser = users[Number(id.id)];
-  const [currentId, setCount] = useState(Number(id.id));
+  let next = users[Number(id.id) + 1];
+
   console.log(currentUser);
   console.log(id.id);
   return (
-    <div className={styles.infoblock}>
-      <div className={styles[`${currentUser.gender}`]}>
+    <div className={styles.infoBlock}>
+      <div className={styles.h2}>
+      <h2>Подробная информация о пользователе</h2>
+      </div>
+      <div className={styles[`${users[currentId].gender}`]}>
         <div className={styles.rowInfo}>
           <div className={styles.image}>
             <img src={currentUser.picture.large} />
@@ -58,12 +73,12 @@ function UserCard() {
           </div>
         </div>
         <div className={styles.rowButton}>
-          <div className={styles.button}>
-              <p>Предыдущий</p>
-              </div>
-          <div className={styles.button} onClick={() => setCount(currentId + 1)}>
-              <p>Следующий</p>
-              </div>
+          <Link to={`/user/${currentId - 1}`}><div className={styles.button}>
+            Предыдущий
+              </div></Link>
+          <Link to={`/user/${currentId + 1}`}><div className={styles.button} >
+            Следующий
+              </div></Link>
         </div>
       </div>
     </div>
