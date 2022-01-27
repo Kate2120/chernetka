@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Path} from "../../constants/path/path";
 import {Link, useLocation} from "react-router-dom";
 import i18next, {changeLanguage} from "i18next";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 export default function Menu() {
     let location = useLocation();

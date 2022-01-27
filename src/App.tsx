@@ -18,12 +18,13 @@ function App() {
     } else {
         isLogged = true;
     }
+    console.log(isLogged);
 
     return (
         <div>
             {isLogged ? <Header/> : ''}
             <Routes>
-                <Route path={Path.LOGIN} element={(!isLogged) ? <LoginPage/> : <Navigate to={Path.HOME}/>}/>
+                <Route path={Path.LOGIN} element={<LoginPage/>}/>
                 <Route path={Path.HOME} element={isLogged ? <Home/> : <Navigate to={Path.LOGIN}/>}/>
                 <Route path={Path.USER_INFO} element={isLogged ? <UserInfo/> : <Navigate to={Path.LOGIN}/>}/>
                 <Route path={Path.USER_INFO_EMPTY} element={isLogged ? <UserInfo/> : <Navigate to={Path.LOGIN}/>}/>

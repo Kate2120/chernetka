@@ -1,9 +1,10 @@
 import styles from "./Users.module.scss";
 import { Picture, UserName, DateBirth } from "../../Redux/Actions/interfacies";
 import {  useSelector } from "react-redux";
-import { getUsers } from "../../Redux/selectors";
+import {getUsers} from "../../Redux/selectors";
 import {Link, useParams} from "react-router-dom";
 import * as React from "react";
+import {useTranslation} from "react-i18next";
 interface Props {
   image: Picture;
   name: UserName;
@@ -16,24 +17,19 @@ interface Props {
 function UserCard() {
   const id = useParams();
   let currentId = Number(id.id);
-  if(currentId === undefined){
-    currentId = 15;
-  }
+
   let users = useSelector(getUsers);
-  /*if(currentId === 0){
-    currentId = 1;
-  } else if(currentId === 19){
-    currentId = 18;
-  }*/
+
   let currentUser = users[Number(id.id)];
-  let next = users[Number(id.id) + 1];
+  const {t} = useTranslation();
+
 
   console.log(currentUser);
   console.log(id.id);
   return (
     <div className={styles.infoBlock}>
-      <div className={styles.h2}>
-      <h2>Подробная информация о пользователе</h2>
+      <div className={styles.h1}>
+      <h1>{t("about_user")}</h1>
       </div>
       <div className={styles[`${users[currentId].gender}`]}>
         <div className={styles.rowInfo}>
@@ -44,37 +40,37 @@ function UserCard() {
             <h2>{currentUser.name.first + " " + currentUser.name.last}</h2>
 
             <p>
-              <span>Дата рождения: </span>
+              <span>{t("date_of_birth")}: </span>
               {currentUser.dob.date.split("T")[0]}
             </p>
             <p>
-              <span>Возраст: </span>
+              <span>{t("age")}: </span>
               {currentUser.dob.age}
             </p>
             <p>
-              <span>Пол: </span>
+              <span>{t("gender")}: </span>
               {currentUser.gender}
             </p>
             <p>
-              <span>Адрес: </span>
+              <span>{t("address")}: </span>
               {currentUser.location.state + ", " + currentUser.location.city}
             </p>
             <p>
-              <span>Телефон: </span>
+              <span>{t("phone")}: </span>
               {currentUser.phone}
             </p>
             <p>
-              <span>Зарегистрирован: </span>
+              <span>{t("registration_date")}: </span>
               {currentUser.registered.date.split("T")[0]}
             </p>
           </div>
         </div>
         <div className={styles.rowButton}>
           <Link to={currentId > 0 ? `/user/${currentId - 1}` : ''}><div className={currentId > 0 ? styles.button: styles.inactive}>
-            Предыдущий
+            {t("previous")}
               </div></Link>
           <Link to={currentId < users.length -1 ?`/user/${currentId + 1}` : ''}><div className={currentId < users.length -1 ? styles.button : styles.inactive} >
-            Следующий
+            {t("next")}
               </div></Link>
         </div>
       </div>

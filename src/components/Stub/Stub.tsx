@@ -1,25 +1,15 @@
 import styles from './Stub.module.scss';
 import * as React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getAuth, getUsers} from "../../Redux/selectors";
+import {getAllUsers, getAuth, getUsers} from "../../Redux/selectors";
 import {useEffect, useState} from "react";
-import {fetchUsersRequest} from "../../Redux/Actions/actions";
-import UsersList from "../UsersList/UsersList";
+import {fetchAllUsersRequest} from "../../Redux/Actions/actions";
+import UsersList from "../Users/UsersList";
 
 function Stub() {
     let [buttonText, setButtonText] = useState('Выбрать')
     let [viewItems, setViewItems] = useState(false)
-    const dispatch = useDispatch();
-    let auth = useSelector(getAuth);
-    console.log(auth);
 
-    let users = useSelector(getUsers);
-    useEffect(() => {
-        if (users.length === 0) {
-            dispatch(fetchUsersRequest());
-        }
-
-    }, [dispatch]);
 
     let changeView = () => {
 
@@ -54,6 +44,4 @@ function Stub() {
     )
 }
 
-let items = document.querySelector('.Stub_item__U9LBI');
-console.log(items)
 export default Stub;

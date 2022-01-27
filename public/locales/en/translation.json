@@ -1,4 +1,18 @@
 {
     "users": "All clients",
-    "user_info": "About the client"
+    "user_info": "About the client",
+    "home": "Home",
+    "logout": "Logout",
+    "user": "User",
+    "our_users": "Our users",
+    "about_user": "User details",
+    "date_of_birth": "Date of birth",
+    "age": "Age",
+    "gender": "Sex",
+    "address": "Address",
+    "phone": "Phone",
+    "registration_date": "Registration date",
+    "previous": "Previous",
+    "next": "Next",
+    "more": "More"
 }

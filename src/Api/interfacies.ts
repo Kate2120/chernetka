@@ -1,3 +1,5 @@
+import {dataAuth} from "../Redux/Actions/interfacies";
+
 export interface UserName {
     title: string,
     first: string,
@@ -39,7 +41,12 @@ export interface User {
 
 }
 export interface State {
-    users: User[],
+    users: {
+        users: User[],
+        allUsers: User[],
+        auth: dataAuth,
+    },
+
 }
 
 export interface Users {

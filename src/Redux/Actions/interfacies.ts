@@ -1,17 +1,20 @@
-export interface UserName{
-    title: string, 
+export interface UserName {
+    title: string,
     first: string,
     last: string,
 }
-export interface DateBirth{
+
+export interface DateBirth {
     date: string,
     age: string,
 }
-export interface Picture{
+
+export interface Picture {
     large: string,
     medium: string,
     thumbnail: string,
 }
+
 export interface Location {
     street: string,
     city: string,
@@ -19,14 +22,17 @@ export interface Location {
     postcode: string,
     coordinates: Coordinates,
 }
+
 export interface Coordinates {
     latitude: string,
     longitude: string,
 }
+
 export interface Registered {
     date: string,
     age: string
 }
+
 export interface User {
     name: UserName,
     gender: string,
@@ -36,29 +42,39 @@ export interface User {
     registered: Registered,
     phone: string
 }
+
 export interface State {
     users: {
-        users:User[],
+        users: User[],
+        allUsers: User[],
         auth: dataAuth,
     },
 }
 
-  export interface Users{
+export interface Users {
     users: User[],
 }
+
 export interface Request {
-  type: string
-}
-export interface GetUsersSucsess{
     type: string,
-    payload: User[];
+    payload: number,
 }
-export interface dataAuth{
+
+export interface GetUsersSuccess {
+    type: string,
+    payload: User[],
+}
+
+export interface dataAuth {
     name: string,
     password: string,
     confirmPassword: string,
 }
-export  interface authRequest{
+
+export interface authRequest {
     type: string,
     payload: dataAuth,
+}
+export interface RequestAll{
+    type: string,
 }

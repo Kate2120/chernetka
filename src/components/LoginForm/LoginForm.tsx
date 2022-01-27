@@ -2,7 +2,7 @@ import styles from './LoginForm.module.scss';
 import {Formik} from "formik";
 import * as yup from 'yup';
 import {authRequest} from "../../Redux/Actions/interfacies";
-import {authorisationRequest, fetchUsersRequest} from "../../Redux/Actions/actions";
+import {authorisationRequest, fetchAllUsersRequest, fetchUsersRequest} from "../../Redux/Actions/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {Path} from "../../constants/path/path";
@@ -10,15 +10,18 @@ import {useEffect} from "react";
 import {getAuth, getUsers} from "../../Redux/selectors";
 function LoginForm() {
     const dispatch = useDispatch();
-    let users = useSelector(getUsers);
-    let auth = useSelector(getAuth)
-    console.log(auth)
+/*    useEffect(() => {
+        dispatch(fetchAllUsersRequest());
+    }, [dispatch]);*/
+/*    let users = useSelector(getUsers);
+    let auth = useSelector(getAuth)*/
+/*    console.log(auth)
     console.log(users);
     useEffect(() => {
         if(users.length === 0){
             dispatch(fetchUsersRequest());
         }
-    }, [dispatch]);
+    }, [dispatch]);*/
 
     const validationSchema = yup.object().shape({
         name: yup.string().typeError('Должно быть строкой').required('Имя обязательно'),

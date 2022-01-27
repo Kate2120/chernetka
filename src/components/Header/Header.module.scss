@@ -1,6 +1,15 @@
 .header {
     background-color: #715f65;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
+  .logo{
+    max-width: 50px;
+    margin: auto;
+    height: 50px;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
     
   }
 
