@@ -18,6 +18,7 @@
 
   .male,
   .female {
+
     width: 300px;
     height: 450px;
     border-radius: 5px;
@@ -66,6 +67,17 @@
 
   .male {
     background-color: $light_blue;
+  }
+
+  .female:hover{
+    width: 310px;
+    height: 460px;
+    box-shadow: 0 0 10px 5px $shadow_blue;
+  }
+  .male:hover{
+    width: 310px;
+    height: 460px;
+    box-shadow: 0 0 10px 5px $shadow_blue;
   }
 }
 
@@ -166,6 +178,12 @@
       .inactive{
         display: none;
       }
+      .button:hover{
+        box-shadow: 0 0 10px 5px $shadow;
+        width: 204px;
+        height: 64px;
+
+      }
     }
   }
 
@@ -227,6 +245,11 @@
 
 
         }
+        .button:hover{
+          width: 154px;
+          height: 44px;
+
+        }
       }
     }
   }
@@ -261,6 +284,11 @@ font-size: 16px;
         border-radius: 5px;
         a {
         }
+      }
+      .button:hover{
+        width: 104px;
+        height: 34px;
+
       }
     }
   }
@@ -311,6 +339,11 @@ font-size: 16px;
 
         }
       }
+        .button:hover{
+          width: 52px;
+          height: 42px;
+
+        }
     }
   }
 }

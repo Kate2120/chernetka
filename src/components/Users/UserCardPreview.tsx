@@ -26,8 +26,11 @@ export default function UserCardPreview(props: Props) {
     const {t} = useTranslation();
   return (
     <div className={styles[`${props.gender}`]}>
+
       <div className={styles.picture}>
-        <img src={props.image.large} />
+          <Link to={`/user/${props.id}`}>
+        <img src={props.image.large} alt={props.name.first + " " + props.name.first} title={props.name.first + " " + props.name.first}/>
+          </Link>
       </div>
       <div className={styles.preview_info}>
         {props.name.first + " " + props.name.first}
@@ -41,6 +44,7 @@ export default function UserCardPreview(props: Props) {
       <div className={styles.button} id={props.id}>
         <Link to={`/user/${props.id}`}>{t("more")}</Link>
       </div>
+
     </div>
   );
 }

@@ -16,7 +16,7 @@ function UsersList() {
                     <div className={styles.item} id={String(index)} onMouseOver={() => setPicture(user.picture.large)}
                          onMouseOut={() => setPicture('')}>
                         <Link to={`${url.pathname}/${index}`}>
-                            <div className={styles.photoPreview}><img src={user.picture.thumbnail}/></div>
+                            <div className={styles.photoPreview}><img src={user.picture.thumbnail} alt={user.name.first + ' ' + user.name.last} title={user.name.first + ' ' + user.name.last}/></div>
                             <div>{user.name.first + ' ' + user.name.last}</div>
                         </Link>
                     </div>

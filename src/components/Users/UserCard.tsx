@@ -20,7 +20,7 @@ function UserCard() {
             <div className={styles[`${users[currentId].gender}`]}>
                 <div className={styles.rowInfo}>
                     <div className={styles.image}>
-                        <img src={currentUser.picture.large}/>
+                        <img src={currentUser.picture.large} alt={currentUser.name.first + " " + currentUser.name.last} title={currentUser.name.first + " " + currentUser.name.last}/>
                     </div>
                     <div className={styles.info}>
                         <h2>{currentUser.name.first + " " + currentUser.name.last}</h2>

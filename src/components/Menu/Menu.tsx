@@ -39,15 +39,15 @@ export default function Menu() {
 
                     <div onClick={() => changeLanguage("ru")}
                          className={i18next.language === 'ru' ? styles.active : styles.lang} id='ru'>
-                        <img src={PathImg.FLAG_RU}/>
+                        <img src={PathImg.FLAG_RU} alt={t("russian")} title={t("russian")}/>
                     </div>
                     <div onClick={() => changeLanguage("en")}
                          className={i18next.language === 'en' ? styles.active : styles.lang} id='en'>
-                        <img src={PathImg.FLAG_EN}/>
+                        <img src={PathImg.FLAG_EN} alt={t("english")} title={t("english")}/>
                     </div>
                     <div className={styles.logout} onClick={handlerLogout}>
                         <Link to={Path.LOGIN}>
-                            <img src={PathImg.LOGOUT}/>
+                            <img src={PathImg.LOGOUT} alt={t("logout")} title={t("logout")}/>
                         </Link>
                     </div>
                 </div>
