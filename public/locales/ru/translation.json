@@ -14,6 +14,23 @@
     "registration_date": "Дата регистрации",
     "previous": "Предыдущий",
     "next": "Следующий",
-    "more": "Подробнее"
+    "more": "Подробнее",
+    "choose_lang": "Выбрать язык",
+    "russian": "Русский",
+    "english": "Английский",
+    "choose_user": "Выберите пользователя",
+    "make_choice": "Сделайте выбор",
+    "select": "Выбрать",
+    "collapse": "Свернуть",
+    "name_required": "Имя обязательно",
+    "must_be_string": "Должно быть строкой",
+    "password_required": "Пароль обязателен",
+    "password_mismatch": "Пароли не совпадают",
+    "confirmation_required": "Подтверждение обязателено",
+    "name": "Имя",
+    "password": "Пароль",
+    "confirm_password": "Подтвердите пароль",
+    "login": "Войти",
+    "login_to_admin": "Для входа в админ панель введите имя и пароль"
 
 }

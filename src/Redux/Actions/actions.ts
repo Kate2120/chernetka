@@ -1,5 +1,16 @@
 import {Types} from './Types';
-import {Request, GetUsersSuccess, User, dataAuth, authRequest, RequestAll} from './interfacies';
+import {
+    Request,
+    GetUsersSuccess,
+    User,
+    dataAuth,
+    authRequest,
+    RequestLogout,
+    LogoutSuccess,
+    fetchUsersError, dataError
+} from './interfacies';
+import {Simulate} from "react-dom/test-utils";
+
 
 export const fetchUsersRequest = (data: number): Request => ({
     type: Types.GET_USERS,
@@ -18,10 +29,15 @@ export const sendDataAuthSuccess = (data: dataAuth): authRequest => ({
     payload: data,
 })
 
-export const fetchAllUsersRequest = (): RequestAll => ({
-    type: Types.GET_USERS,
+export const fetchLogout = (): RequestLogout => ({
+    type: Types.GET_LOGOUT,
+    payload: null
 })
-export const fetchAllUsersSuccess = (data: User[]): GetUsersSuccess => ({
-    type: Types.GET_ALL_USERS_SUCCESS,
-    payload: data,
+export const logoutSuccess = (): LogoutSuccess => ({
+    type: Types.LOGOUT_SUCCESS,
+    payload: null
+})
+export const fetchUsersFail = (error: dataError): fetchUsersError => ({
+    type: Types.GET_USERS_ERROR,
+    payload: error
 })

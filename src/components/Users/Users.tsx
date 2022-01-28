@@ -1,58 +1,40 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllUsers, getUsers} from "../../Redux/selectors";
+import {getUsers} from "../../Redux/selectors";
 import UserCardPreview from "./UserCardPreview";
 import styles from "./Users.module.scss";
-import {fetchAllUsersRequest, fetchUsersRequest} from "../../Redux/Actions/actions";
+import {fetchUsersRequest} from "../../Redux/Actions/actions";
 import {useTranslation} from "react-i18next";
 
 export default function Users() {
-
     const dispatch = useDispatch();
     let users = useSelector(getUsers);
-
     let [currentPage, setPage] = useState(1);
     let [fetching, setFetching] = useState(true);
     const {t} = useTranslation();
-
-
-    console.log(users)
-    console.log(users.length)
-
     useEffect(() => {
-           if (fetching) {
-               if(users.length < 19){
-                   console.log('длинна проходит')
-                   dispatch(fetchUsersRequest(currentPage));
-                   setFetching(false);
-               }
+        if (fetching) {
+            if (users.length < 19) {
+                dispatch(fetchUsersRequest(currentPage));
+                setFetching(false);
+            }
 
         }
     }, [fetching]);
-
-    /*useEffect(() => {
-        dispatch(fetchAllUsersRequest());
-    }, [dispatch]);*/
-
-
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler);
         return function () {
             document.removeEventListener('scroll', scrollHandler);
         }
     }, []);
-
     let scrollHandler = (event: Event) => {
         if (event.target !== null) {
             if (document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 130 && users.length < 19) {
-                console.log('скролл проходит')
                 setFetching(true);
                 setPage(prevState => prevState + 1);
             }
         }
-
     };
-
     let background = "";
     return (
         <div className={styles.h1}>

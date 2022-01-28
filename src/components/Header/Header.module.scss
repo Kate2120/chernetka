@@ -1,9 +1,13 @@
+@import 'src/constants/colors/__styles.scss';
 .header {
-    background-color: #715f65;
-    padding: 10px 10px 0 10px;
+    background-color: $brown;
+    padding: 10px 10px 5px 10px;
+  .burger{
+    display: none;
+  }
   .logo{
     max-width: 50px;
-    margin: auto;
+    margin: 0 auto 5px;
     height: 50px;
     img{
       width: 100%;
@@ -12,4 +16,23 @@
   }
     
   }
+@media (max-width: 480px){
+ .header{
 
+   .burger{
+    display: block;
+     width: 30px;
+     height: 30px;
+     border-radius: 5px;
+     img{
+       margin-top: 8px;
+       width: 100%;
+       height: auto;
+       border-radius: 5px;
+     }
+  }
+   .logo{
+     margin-top: -30px;
+   }
+ }
+}

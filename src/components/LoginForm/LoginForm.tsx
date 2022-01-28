@@ -1,35 +1,20 @@
 import styles from './LoginForm.module.scss';
 import {Formik} from "formik";
 import * as yup from 'yup';
-import {authRequest} from "../../Redux/Actions/interfacies";
-import {authorisationRequest, fetchAllUsersRequest, fetchUsersRequest} from "../../Redux/Actions/actions";
-import {useDispatch, useSelector} from "react-redux";
+import {authorisationRequest} from "../../Redux/Actions/actions";
+import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import {Path} from "../../constants/path/path";
-import {useEffect} from "react";
-import {getAuth, getUsers} from "../../Redux/selectors";
+import {useTranslation} from "react-i18next";
+
 function LoginForm() {
     const dispatch = useDispatch();
-/*    useEffect(() => {
-        dispatch(fetchAllUsersRequest());
-    }, [dispatch]);*/
-/*    let users = useSelector(getUsers);
-    let auth = useSelector(getAuth)*/
-/*    console.log(auth)
-    console.log(users);
-    useEffect(() => {
-        if(users.length === 0){
-            dispatch(fetchUsersRequest());
-        }
-    }, [dispatch]);*/
-
+    const {t} = useTranslation();
     const validationSchema = yup.object().shape({
-        name: yup.string().typeError('Должно быть строкой').required('Имя обязательно'),
-        password: yup.string().typeError('Должно быть строкой').required('Пароль обязателен'),
-        confirmPassword: yup.string().oneOf([yup.ref('password')], 'Пароли не совпадают').required('Подтверждение обязателено'),
+        name: yup.string().typeError(t("name_required")).required(t("must_be_string")),
+        password: yup.string().typeError(t("must_be_string")).required(t("password_required")),
+        confirmPassword: yup.string().oneOf([yup.ref('password')], t("password_mismatch")).required(t("confirmation_required")),
     })
-
-
     return (
         <>
             <Formik
@@ -49,22 +34,22 @@ function LoginForm() {
                     (
                         <div className={styles.form}>
 
-                            <p>Для входа в админ панель введите имя и пароль</p>
+                            <p>{t("login_to_admin")}</p>
                             <label htmlFor={'name'}>
-                                Имя
-                                <input className={styles.input} placeholder='Name' type='text' name={'name'} onChange={handleChange}
+                                {t("name")}
+                                <input className={styles.input} placeholder={t("name")} type='text' name={'name'} onChange={handleChange}
                                        onBlur={handleBlur} value={values.name}/>
                             </label>
                             {touched.name && errors.name && <p className={styles.error}>{errors.name}</p>}
                             <label htmlFor={'password'}>
-                                Пароль
-                                <input className={styles.input} placeholder="Password" type='password' name={'password'}
+                                {t("password")}
+                                <input className={styles.input} placeholder={t("password")} type='password' name={'password'}
                                        onChange={handleChange} onBlur={handleBlur} value={values.password}/>
                             </label>
                             {touched.password && errors.password && <p className={styles.error}>{errors.password}</p>}
                             <label htmlFor={'confirmPassword'}>
-                                Подтвердите пароль
-                                <input className={styles.input} placeholder="Password"  type='password' name={'confirmPassword'}
+                                {t("confirm_password")}
+                                <input className={styles.input} placeholder={t("confirm_password")}  type='password' name={'confirmPassword'}
                                        onChange={handleChange} onBlur={handleBlur} value={values.confirmPassword}/>
                             </label>
                             {touched.confirmPassword && errors.confirmPassword && <p className={styles.error}>{errors.confirmPassword}</p>}
@@ -73,7 +58,7 @@ function LoginForm() {
                                 onClick={() => dispatch(authorisationRequest(values))}
                                 type={'submit'}
                             >
-                                <Link to={Path.HOME} >Войти</Link>
+                                <Link to={Path.HOME} >{t("login")}</Link>
                             </button>
                         </div>
                     )}

@@ -2,7 +2,7 @@ import styles from "./UserList.module.scss";
 import {Link, useLocation} from "react-router-dom";
 import * as React from "react";
 import {useSelector} from "react-redux";
-import {getAllUsers, getUsers} from "../../Redux/selectors";
+import {getUsers} from "../../Redux/selectors";
 import {useState} from "react";
 
 function UsersList() {

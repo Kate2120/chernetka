@@ -1,19 +1,40 @@
-.breadcrumbs{
-  ul{
+@import 'src/constants/colors/__styles.scss';
+.breadcrumbs {
+  ul {
     display: flex;
     justify-content: start;
-    color: #715f65;
-    li{
+    color: $brown;
+
+    li {
       list-style-type: none;
       margin: 0 10px 0 5px;
       color: inherit;
-      a{
+
+      a {
         text-decoration: none;
         color: inherit;
       }
     }
-    li:last-child{
+
+    li:last-child {
       font-weight: bold;
     }
   }
+}
+
+@media (max-width: 480px) {
+  .breadcrumbs{
+  ul {
+    font-size: 12px;
+    li {
+      a {
+        font-size: 8px;
+      }
+    }
+    li:first-child{
+      margin-left: -20px;
+    }
+
+  }
+}
 }

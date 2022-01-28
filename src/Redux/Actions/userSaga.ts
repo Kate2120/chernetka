@@ -1,38 +1,42 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {Types} from './Types';
-import {User, dataAuth, authRequest} from "./interfacies";
-import {fetchAllUsersSuccess, fetchUsersSuccess, sendDataAuthSuccess} from './actions';
-import {fetchUsers, fetchAllUsers} from '../../Api/api';
-import {Action} from "redux";
-interface IParams<T> {
+import {User, authRequest, fetchUsersError, dataError} from "./interfacies";
+import {fetchUsersSuccess, logoutSuccess, sendDataAuthSuccess, fetchUsersFail} from './actions';
+import errorHandler from './handlerError'
+import {fetchUsers} from '../../Api/api';
+
+
+interface Params<T> {
     type: string;
     payload: T;
+    error?: dataError;
 }
 
-function* fetchUsersWorker <T extends number>({payload}: IParams<T>){
+function* fetchUsersWorker <T extends number>({payload}: Params<T>){
     try {
         const users = (yield call(fetchUsers, payload)) as User[];
         yield put(fetchUsersSuccess(users));
-      } catch {}
+      } catch (error: any) {
+        yield errorHandler(error);
+    }
 }
-function* fetchAllUsersWorker(){
-    try {
-        const allUsers = (yield call(fetchAllUsers)) as User[];
-        console.log(allUsers);
-        yield put(fetchAllUsersSuccess(allUsers));
-    } catch {}
-}
+
 function* sendDataAuthWorker({payload}: authRequest){
 
     try{
         yield put(sendDataAuthSuccess(payload));
-        console.log(payload)
     }catch{}
+}
+
+function* logoutWorker () {
+    try {
+        yield put(logoutSuccess());
+    } catch {}
 }
 
 export function* usersWatcher(){
     yield takeLatest(Types.SEND_DATA_AUTH, sendDataAuthWorker);
-    yield takeLatest(Types.GET_ALL_USERS, fetchAllUsersWorker);
     yield takeLatest(Types.GET_USERS, fetchUsersWorker);
+    yield takeLatest(Types.GET_LOGOUT, logoutWorker);
 
 }

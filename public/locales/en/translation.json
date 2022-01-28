@@ -14,5 +14,22 @@
     "registration_date": "Registration date",
     "previous": "Previous",
     "next": "Next",
-    "more": "More"
+    "more": "More",
+    "choose_lang": "Choose language",
+    "russian": "Russian",
+    "english": "English",
+    "choose_user": "Select user",
+    "make_choice": "Make a choice",
+    "select": "Select",
+    "collapse": "Collapse",
+    "name_required": "Name required",
+    "must_be_string": "Must be a string",
+    "password_required": "Password required",
+    "password_mismatch": "Password mismatch",
+    "confirmation_required": "Confirmation required",
+    "name": "Name",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "login": "Login",
+    "login_to_admin": "Enter your username and password to login to the admin panel"
 }

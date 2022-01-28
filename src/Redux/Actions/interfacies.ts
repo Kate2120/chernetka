@@ -1,3 +1,5 @@
+import {Types} from "./Types";
+
 export interface UserName {
     title: string,
     first: string,
@@ -46,7 +48,6 @@ export interface User {
 export interface State {
     users: {
         users: User[],
-        allUsers: User[],
         auth: dataAuth,
     },
 }
@@ -75,6 +76,21 @@ export interface authRequest {
     type: string,
     payload: dataAuth,
 }
-export interface RequestAll{
+
+export interface RequestLogout {
     type: string,
+    payload: null,
+}
+
+export interface LogoutSuccess {
+    type: string,
+    payload: null,
+}
+export interface dataError{
+    status: number,
+    title: string
+}
+export interface fetchUsersError {
+    type: string,
+    payload: dataError
 }

@@ -1,10 +1,11 @@
-*{
+@import 'src/constants/colors/__styles.scss';
+* {
   padding: 0;
   margin: 0;
 }
-.menu {
-  background-color: #715f65;
 
+.menu {
+  background-color: $brown;
 
   .container {
     max-width: 1050px;
@@ -13,12 +14,16 @@
     justify-content: space-between;
     padding: 0 20px 5px 20px;
 
+    .burger {
+      display: none;
+    }
+
     ul {
       display: flex;
       justify-content: start;
 
       li {
-        color: #fee2e3;
+        color: $light_pink;
         display: block;
         width: 150px;
         list-style-type: none;
@@ -28,12 +33,12 @@
         .linkMenu {
           text-decoration: none;
           font-size: 20px;
-          color: #fee2e3;
+          color: $light_pink;
 
         }
 
         .activeItem {
-          color: #f64e72;
+          color: $hot_pink;
           text-decoration: none;
           font-size: 20px;
         }
@@ -49,6 +54,7 @@
       .lang {
         width: 30px;
         height: 15px;
+        margin-top: 5px;
         margin-right: 10px;
         cursor: pointer;
 
@@ -60,8 +66,9 @@
       .active {
         width: 30px;
         height: 15px;
+        margin-top: 5px;
         margin-right: 5px;
-        box-shadow: 0 0 10px 5px rgba(254, 226, 227, 1);
+        box-shadow: 0 0 10px 5px $shadow;
 
 
         img {
@@ -69,6 +76,88 @@
         }
       }
 
+      .logout {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        width: 30px;
+        height: 30px;
+
+        a {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
     }
+
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+.mobileInactive{
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .menu {
+    display: none;
+
+  }
+  .mobile {
+    display: block;
+    width: 80%;
+    position: fixed;
+    margin-left: 0;
+    background-color: $light_pink;
+    padding: 20px;
+    border-right: 1px solid $brown;
+    border-bottom: 1px solid $brown;
+    border-bottom-right-radius: 5px;
+
+    ul {
+      margin-bottom: 20px;
+
+      li {
+        margin-bottom: 10px;
+        list-style-type: none;
+        font-size: 20px;
+
+        a {
+          text-decoration: none;
+          color: $hot_pink;
+        }
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $hot_pink;
+      margin-bottom: 10px;
+      a{
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        margin-bottom: inherit;
+        text-decoration: none;
+      }
+    }
+
+    ul {
+      margin-bottom: 20px;
+
+      li {
+        margin-bottom: 10px;
+        list-style-type: none;
+        font-size: 20px;
+        color: $hot_pink;
+      }
+    }
+  }
+  .mobileInactive{
+    display: none;
   }
 }

@@ -4,7 +4,6 @@ import {Types} from './Actions/Types';
 
 const initialState  = {
     users: [],
-    allUsers: [],
     auth: null,
 
 }
@@ -15,8 +14,8 @@ switch(action.type){
         return { ...state,  users: [...state.users, ...action.payload ]};
     case Types.GET_DATA_AUTH_SUCCESS:
         return { ...state, auth: action.payload};
-    case Types.GET_ALL_USERS_SUCCESS:
-        return { ...state, allUsers: action.payload };
+    case Types.LOGOUT_SUCCESS:
+        return {...state, auth: null};
     default:
       return state;
 }
