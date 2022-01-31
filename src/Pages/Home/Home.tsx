@@ -5,9 +5,7 @@ import {useSelector} from "react-redux";
 import {getAuth} from "../../Redux/selectors";
 
 function Home() {
-    let user = useSelector(getAuth);
-    console.log(user)
-    console.log(localStorage)
+
   return (
     <div className={styles.body}>
           <Users/>

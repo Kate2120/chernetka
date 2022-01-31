@@ -1,6 +1,8 @@
 # Getting Started with Create React App
-
-   
+className={location.pathname === Path.HOME ? styles.activeItem : styles.linkMenu}
+className={location.pathname.includes('user') ? styles.activeItem : styles.linkMenu}
+onClick={() => {
+}}   
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

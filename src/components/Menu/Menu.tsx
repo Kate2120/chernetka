@@ -2,12 +2,13 @@ import styles from "./Menu.module.scss";
 import React from "react";
 import {useTranslation} from "react-i18next";
 import {Path} from "../../constants/path/path";
-import {Link, useLocation} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 import i18next, {changeLanguage} from "i18next";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {fetchLogout} from "../../Redux/Actions/actions";
 import {PathImg} from "../../constants/path/parh-images";
+
 
 export default function Menu() {
     const dispatch = useDispatch();
@@ -25,14 +26,12 @@ export default function Menu() {
             <div className={styles.container}>
                 <ul>
                     <li>
-                        <Link to={Path.HOME}
-                              className={location.pathname === Path.HOME ? styles.activeItem : styles.linkMenu}>{t("users")}</Link>
+                        <NavLink to={Path.HOME}
+                              >{t("users")}</NavLink>
                     </li>
                     <li>
-                        <Link to={Path.USER_INFO_EMPTY}
-                              className={location.pathname.includes('user') ? styles.activeItem : styles.linkMenu}
-                              onClick={() => {
-                              }}>{t("user_info")}</Link>
+                        <NavLink to={Path.USER_INFO_EMPTY}
+                        >{t("user_info")}</NavLink>
                     </li>
                 </ul>
                 <div className={styles.langBlock}>
