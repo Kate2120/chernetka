@@ -24,12 +24,15 @@ function* fetchUsersWorker <T extends number>({payload}: Params<T>){
 function* sendDataAuthWorker({payload}: authRequest){
 
     try{
+        localStorage.setItem('is_logged', 'true');
         yield put(sendDataAuthSuccess(payload));
+
     }catch{}
 }
 
 function* logoutWorker () {
     try {
+        localStorage.setItem('is_logged', 'false');
         yield put(logoutSuccess());
     } catch {}
 }

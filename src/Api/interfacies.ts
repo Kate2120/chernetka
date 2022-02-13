@@ -1,4 +1,5 @@
-import {dataAuth} from "../Redux/Actions/interfacies";
+import {FormikValues} from "formik";
+
 
 export interface UserName {
     title: string,
@@ -44,7 +45,7 @@ export interface State {
     users: {
         users: User[],
         allUsers: User[],
-        auth: dataAuth,
+        auth: FormikValues,
     },
 
 }

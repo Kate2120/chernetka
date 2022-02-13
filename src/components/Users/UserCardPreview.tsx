@@ -33,7 +33,7 @@ export default function UserCardPreview(props: Props) {
           </Link>
       </div>
       <div className={styles.preview_info}>
-        {props.name.first + " " + props.name.first}
+        {`${props.name.first} ${props.name.first}`}
       </div>
       <div className={styles.preview_info}>
         {props.birth.date.split("T")[0]}

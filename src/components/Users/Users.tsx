@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getUsers} from "../../Redux/selectors";
+import {getIsLogged, getUsers} from "../../Redux/selectors";
 import UserCardPreview from "./UserCardPreview";
 import styles from "./Users.module.scss";
 import {fetchUsersRequest} from "../../Redux/Actions/actions";
@@ -11,11 +11,13 @@ export default function Users() {
     let users = useSelector(getUsers);
     let [currentPage, setPage] = useState(1);
     let [fetching, setFetching] = useState(true);
+    let isLogged = localStorage.getItem('is_logged');
     const {t} = useTranslation();
     useEffect(() => {
-        if (fetching) {
+        if (fetching ) {
             if (users.length < 19) {
                 dispatch(fetchUsersRequest(currentPage));
+
                 setFetching(false);
             }
 

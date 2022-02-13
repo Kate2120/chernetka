@@ -1,4 +1,5 @@
 import {Types} from "./Types";
+import {FormikValues} from "formik";
 
 export interface UserName {
     title: string,
@@ -48,7 +49,8 @@ export interface User {
 export interface State {
     users: {
         users: User[],
-        auth: dataAuth,
+        auth: FormikValues,
+        isLogged: boolean,
     },
 }
 
@@ -67,14 +69,14 @@ export interface GetUsersSuccess {
 }
 
 export interface dataAuth {
-    name: string,
-    password: string,
-    confirmPassword: string,
+        name: string,
+        password: string,
+        confirmPassword: string,
 }
 
 export interface authRequest {
     type: string,
-    payload: dataAuth,
+    payload: FormikValues,
 }
 
 export interface RequestLogout {
@@ -86,10 +88,12 @@ export interface LogoutSuccess {
     type: string,
     payload: null,
 }
-export interface dataError{
+
+export interface dataError {
     status: number,
     title: string
 }
+
 export interface fetchUsersError {
     type: string,
     payload: dataError
