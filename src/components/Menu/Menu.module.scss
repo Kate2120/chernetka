@@ -1,4 +1,5 @@
 @import 'src/constants/colors/__styles.scss';
+
 * {
   padding: 0;
   margin: 0;
@@ -29,22 +30,27 @@
         list-style-type: none;
         margin-right: 10px;
         font-size: 18px;
-
-        .linkMenu {
+        a{
           text-decoration: none;
           font-size: 20px;
           color: $light_pink;
+          .inactive{
+            color: $light_pink;
+          }
+
+          .active {
+            color: $hot_pink;
+          }
 
         }
-
         .active {
           color: $hot_pink;
-          text-decoration: none;
-          font-size: 20px;
         }
+
 
       }
     }
+
 
     .langBlock {
       display: flex;
@@ -63,7 +69,7 @@
         }
       }
 
-      .active {
+      .selected {
         width: 30px;
         height: 15px;
         margin-top: 5px;
@@ -92,12 +98,13 @@
     }
 
   }
+
   .mobile {
     display: none;
   }
 }
 
-.mobileInactive{
+.mobileInactive {
   display: none;
 }
 
@@ -137,7 +144,8 @@
       font-weight: bold;
       color: $hot_pink;
       margin-bottom: 10px;
-      a{
+
+      a {
         font-size: inherit;
         font-weight: inherit;
         color: inherit;
@@ -157,7 +165,10 @@
       }
     }
   }
-  .mobileInactive{
+  .mobileInactive {
     display: none;
   }
+}
+.active {
+  color: $hot_pink;
 }

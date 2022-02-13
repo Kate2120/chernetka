@@ -13,6 +13,7 @@ import {PathImg} from "../../constants/path/parh-images";
 export default function Menu() {
     const dispatch = useDispatch();
     let location = useLocation();
+
     let handlerLogout = () => {
         dispatch(fetchLogout());
     }
@@ -27,21 +28,23 @@ export default function Menu() {
                 <ul>
                     <li>
                         <NavLink to={Path.HOME}
-                              >{t("users")}</NavLink>
+                                 className={({ isActive }) => (isActive ? styles.active : styles.inactive)}
+                        >{t("users")}</NavLink>
                     </li>
                     <li>
                         <NavLink to={Path.USER_INFO_EMPTY}
+                                 className={({ isActive }) => (isActive ? styles.active : styles.inactive)}
                         >{t("user_info")}</NavLink>
                     </li>
                 </ul>
                 <div className={styles.langBlock}>
 
                     <div onClick={() => changeLanguage("ru")}
-                         className={i18next.language === 'ru' ? styles.active : styles.lang} id='ru'>
+                         className={i18next.language === 'ru' ? styles.selected : styles.lang} id='ru'>
                         <img src={PathImg.FLAG_RU} alt={t("russian")} title={t("russian")}/>
                     </div>
                     <div onClick={() => changeLanguage("en")}
-                         className={i18next.language === 'en' ? styles.active : styles.lang} id='en'>
+                         className={i18next.language === 'en' ? styles.selected : styles.lang} id='en'>
                         <img src={PathImg.FLAG_EN} alt={t("english")} title={t("english")}/>
                     </div>
                     <div className={styles.logout} onClick={handlerLogout}>

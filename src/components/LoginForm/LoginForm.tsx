@@ -10,7 +10,7 @@ function LoginForm() {
     const dispatch = useDispatch();
     const {t} = useTranslation();
     const validationSchema = yup.object().shape({
-        name: yup.string().typeError(t("name_required")).required(t("must_be_string")),
+        firstName: yup.string().typeError(t("name_required")).required(t("must_be_string")),
         password: yup.string().typeError(t("must_be_string")).required(t("password_required")),
         confirmPassword: yup.string().oneOf([yup.ref('password')], t("password_mismatch")).required(t("confirmation_required")),
     })
@@ -20,7 +20,7 @@ function LoginForm() {
             password: '',
             confirmPassword: '',
         },
-        validationSchema: {validationSchema},
+        validationSchema,
         onSubmit: values => {
             dispatch(authorisationRequest(values))
         },
@@ -28,7 +28,6 @@ function LoginForm() {
     return (
         <>
             <form className={styles.form} onSubmit={formik.handleSubmit}>
-
                 <p>{t("login_to_admin")}</p>
                 <label htmlFor={'name'}>
                     {t("name")}
