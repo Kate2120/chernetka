@@ -4,18 +4,16 @@ import {useDispatch} from "react-redux";
 
 function ErrorHandler (error: dataError){
     const dispatch = useDispatch();
-    if (error.status != null) {
-        if(error.title != null) {
-            if (error.status === 404) {
+    if (error.status != null && error.title != null) {
+            switch (error.status){
+                case 404:
                 dispatch(fetchUsersFail(error));
                     return;
-                }
-            else if (error.status === 403) {
+                case 403:
                     dispatch(fetchUsersFail(error));
                     return;
-                }
             }
         }
-    };
+    }
 
 export default ErrorHandler;
