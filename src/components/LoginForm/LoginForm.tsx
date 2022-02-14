@@ -1,19 +1,15 @@
 import styles from './LoginForm.module.scss';
-import * as yup from 'yup';
 import {authorisationRequest} from "../../Redux/Actions/actions";
 import {useDispatch} from "react-redux";
 import {useTranslation} from "react-i18next";
 import {useFormik} from 'formik';
-
+import ValidationSchema from './validationSchema'
+import Input from "./input";
 
 function LoginForm() {
     const dispatch = useDispatch();
     const {t} = useTranslation();
-    const validationSchema = yup.object().shape({
-        firstName: yup.string().typeError(t("name_required")).required(t("must_be_string")),
-        password: yup.string().typeError(t("must_be_string")).required(t("password_required")),
-        confirmPassword: yup.string().oneOf([yup.ref('password')], t("password_mismatch")).required(t("confirmation_required")),
-    })
+    let validationSchema = ValidationSchema();
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -29,34 +25,13 @@ function LoginForm() {
         <>
             <form className={styles.form} onSubmit={formik.handleSubmit}>
                 <p>{t("login_to_admin")}</p>
-                <label htmlFor={'name'}>
-                    {t("name")}
-                    <input className={styles.input} placeholder={t("name")} type='text' name={'firstName'}
-                           id="firstName"
-                           onChange={formik.handleChange}
-                           onBlur={formik.handleBlur}
-                           value={formik.values.firstName}/>
-                </label>
+                <Input form={formik} name={'firstName'} value={formik.values.firstName}/>
                 {formik.touched.firstName && formik.errors.firstName &&
                 <p className={styles.error}>{formik.errors.firstName}</p>}
-                <label htmlFor={'password'}>
-                    {t("password")}
-                    <input className={styles.input} placeholder={t("password")} type='password'
-                           name={'password'}
-                           onChange={formik.handleChange}
-                           onBlur={formik.handleBlur}
-                           value={formik.values.password}/>
-                </label>
+                <Input form={formik} name={'password'} value={formik.values.password}/>
                 {formik.touched.password && formik.errors.password &&
                 <p className={styles.error}>{formik.errors.password}</p>}
-                <label htmlFor={'confirmPassword'}>
-                    {t("confirm_password")}
-                    <input className={styles.input} placeholder={t("confirm_password")} type='password'
-                           name={'confirmPassword'}
-                           onChange={formik.handleChange}
-                           onBlur={formik.handleBlur}
-                           value={formik.values.confirmPassword}/>
-                </label>
+                <Input form={formik} name={'confirmPassword'} value={formik.values.confirmPassword}/>
                 {formik.touched.confirmPassword && formik.errors.confirmPassword &&
                 <p className={styles.error}>{formik.errors.confirmPassword}</p>}
                 <button

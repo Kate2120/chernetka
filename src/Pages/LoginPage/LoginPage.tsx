@@ -2,13 +2,11 @@ import React from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import styles from "./LoginPage.module.scss";
 import {useSelector} from "react-redux";
-import {getAuth, getIsLogged} from "../../Redux/selectors";
-export default function LoginPage() {
+import {getIsLogged} from "../../Redux/selectors";
 
-    let user = useSelector(getAuth);
-    console.log(user)
-    let isLogged = useSelector(getIsLogged);
-    console.log(isLogged);
+export default function LoginPage() {
+    let auth = useSelector(getIsLogged);
+    console.log(auth);
   return (
     <div className={styles.body}>
       <div className={styles.loginWindow}>

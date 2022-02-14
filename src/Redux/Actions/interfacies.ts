@@ -50,7 +50,7 @@ export interface State {
     users: {
         users: User[],
         auth: FormikValues,
-        isLogged: boolean,
+        isLogged: string,
     },
 }
 

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getIsLogged, getUsers} from "../../Redux/selectors";
+import {getUsers} from "../../Redux/selectors";
 import UserCardPreview from "./UserCardPreview";
 import styles from "./Users.module.scss";
 import {fetchUsersRequest} from "../../Redux/Actions/actions";
