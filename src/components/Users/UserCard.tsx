@@ -10,10 +10,8 @@ import {useMemo} from "react";
 function UserCard() {
     const id = useParams();
     let currentId = Number(id.id);
-
     let users = useSelector(getUsers);
     let currentUser = users[Number(id.id)];
-    console.log(currentUser);
     const dateBirth = useMemo(
         () => new Date(currentUser.dob.date).toLocaleDateString(),
         [currentUser.dob.date]
