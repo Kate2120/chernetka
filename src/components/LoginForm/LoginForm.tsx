@@ -1,5 +1,5 @@
 import styles from './LoginForm.module.scss';
-import {authorisationRequest} from "../../Redux/Actions/actions";
+import {authorisationRequest} from "../../Redux/usersReducer/actions";
 import {useDispatch} from "react-redux";
 import {useTranslation} from "react-i18next";
 import {useFormik} from 'formik';

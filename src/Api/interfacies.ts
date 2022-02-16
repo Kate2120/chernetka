@@ -1,6 +1,5 @@
 import {FormikValues} from "formik";
 
-
 export interface UserName {
     title: string,
     first: string,
@@ -50,6 +49,3 @@ export interface State {
 
 }
 
-export interface Users {
-    users: User[],
-}

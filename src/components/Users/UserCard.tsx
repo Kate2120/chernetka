@@ -1,6 +1,6 @@
 import styles from "./Users.module.scss";
 import {useSelector} from "react-redux";
-import {getUsers} from "../../Redux/selectors";
+import {getUsers} from "../../Redux/usersReducer/selectors";
 import {Link, useParams} from "react-router-dom";
 import * as React from "react";
 import {useTranslation} from "react-i18next";

@@ -3,7 +3,7 @@ import styles from './Breadcrunbs.module.scss'
 import {Link, useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {getUsers} from "../../Redux/selectors";
+import {getUsers} from "../../Redux/usersReducer/selectors";
 
 export default function Breadcrumbs(props: PropsBreadcrumbs) {
     let users = useSelector(getUsers);

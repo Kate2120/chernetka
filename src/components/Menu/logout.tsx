@@ -3,13 +3,14 @@ import {Link} from "react-router-dom";
 import {Path} from "../../constants/path/path";
 import {PathImg} from "../../constants/path/parh-images";
 import React, {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {fetchLogout} from "../../Redux/Actions/actions";
 import {useTranslation} from "react-i18next";
+import {useDispatch} from "react-redux";
+import {fetchLogout} from "../../Redux/usersReducer/actions";
+
 
 function Logout(){
     const dispatch = useDispatch();
-    let handlerLogout = () => {
+    function HandlerLogout () {
         dispatch(fetchLogout());
     }
     useEffect(
@@ -17,7 +18,7 @@ function Logout(){
         }, [localStorage]);
     const {t} = useTranslation();
     return(
-        <div className={styles.logout} onClick={handlerLogout}>
+        <div className={styles.logout} onClick={HandlerLogout}>
             <Link to={Path.LOGIN}>
                 <img src={PathImg.LOGOUT} alt={t("logout")} title={t("logout")}/>
             </Link>

@@ -11,7 +11,7 @@ function UserInfo() {
         <div className={styles.body}>
             <div className={styles.container}>
                 {id ? <Breadcrumbs home={Path.HOME} category={Path.USER_INFO_EMPTY} id={id}
-                                      categoryName={"user_info"}/> :
+                                   categoryName={"user_info"}/> :
                     <Breadcrumbs home={Path.HOME} category={Path.USER_INFO_EMPTY} categoryName={"user_info"}/>}
                 {id ? <UserCard/> : <Stub/>}
             </div>

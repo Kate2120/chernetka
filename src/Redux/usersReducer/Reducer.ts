@@ -1,6 +1,5 @@
-
 import {Action} from './interfacies';
-import {Types} from './Actions/Types';
+import {Types} from './Types';
 
 const initialState  = {
     users: [],

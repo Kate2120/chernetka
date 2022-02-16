@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Users} from "../Redux/Actions/interfacies";
+import {Users} from "../Redux/usersReducer/interfacies";
 import {apiConfig} from "./apiConfig";
 axios.defaults.baseURL = apiConfig.baseURL;
 

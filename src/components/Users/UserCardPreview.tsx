@@ -1,45 +1,32 @@
 import styles from "./Users.module.scss";
-import {
-  User,
-  Picture,
-  UserName,
-  DateBirth,
-} from "../../Redux/Actions/interfacies";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import {PropsUserCardPreview} from "./interfacies";
 
-interface Props {
-  image: Picture;
-  name: UserName;
-  birth: DateBirth;
-  background: string;
-  gender: string;
-  id: string;
-  user: User;
-}
-export default function UserCardPreview(props: Props) {
+export default function UserCardPreview(props: PropsUserCardPreview) {
     const {t} = useTranslation();
-  return (
-    <div className={styles[`${props.gender}`]} >
+    return (
+        <div className={styles[`${props.gender}`]}>
 
-      <div className={styles.picture}>
-          <Link to={`/user/${props.id}`}>
-        <img src={props.image.large} alt={`${props.name.first} ${props.name.last}`} title={`${props.name.first} ${props.name.last}`}/>
-          </Link>
-      </div>
-      <div className={styles.preview_info}>
-        {`${props.name.first} ${props.name.last}`}
-      </div>
-      <div className={styles.preview_info}>
-        {props.birth.date.split("T")[0]}
-      </div>
-      <div className={styles.preview_info}>
-        {`${props.birth.age} years old`}
-      </div>
-      <div className={styles.button} id={props.id}>
-        <Link to={`/user/${props.id}`}>{t("more")}</Link>
-      </div>
+            <div className={styles.picture}>
+                <Link to={`/user/${props.id}`}>
+                    <img src={props.image.large} alt={`${props.name.first} ${props.name.last}`}
+                         title={`${props.name.first} ${props.name.last}`}/>
+                </Link>
+            </div>
+            <div className={styles.preview_info}>
+                {`${props.name.first} ${props.name.last}`}
+            </div>
+            <div className={styles.preview_info}>
+                {props.birth.date.split("T")[0]}
+            </div>
+            <div className={styles.preview_info}>
+                {`${props.birth.age} years old`}
+            </div>
+            <div className={styles.button} id={props.id}>
+                <Link to={`/user/${props.id}`}>{t("more")}</Link>
+            </div>
 
-    </div>
-  );
+        </div>
+    );
 }

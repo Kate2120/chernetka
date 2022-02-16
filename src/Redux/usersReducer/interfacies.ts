@@ -1,6 +1,9 @@
-import {Types} from "./Types";
 import {FormikValues} from "formik";
 
+export interface Action {
+    type: string;
+    payload: any;
+}
 export interface UserName {
     title: string,
     first: string,

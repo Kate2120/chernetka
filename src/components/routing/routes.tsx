@@ -7,7 +7,7 @@ import Home from "../../Pages/Home/Home";
 import UserInfo from "../../Pages/UserInfo/UserInfo";
 import React from "react";
 import {useSelector} from "react-redux";
-import {getIsLogged} from "../../Redux/selectors";
+import {getIsLogged} from "../../Redux/usersReducer/selectors";
 
 function AllRoutes() {
     let auth = useSelector(getIsLogged);

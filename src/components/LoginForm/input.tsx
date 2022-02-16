@@ -1,12 +1,8 @@
 import styles from "./LoginForm.module.scss";
 import {useTranslation} from "react-i18next";
-interface Props {
-    name: string,
-    form: any,
-    value: string,
-}
+import {inputProps} from "./interfacies";
 
-function Input(props: Props) {
+function Input(props: inputProps) {
     const {t} = useTranslation();
     return (
         <label htmlFor={`${props.name}`}>

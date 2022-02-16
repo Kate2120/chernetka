@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getUsers} from "../../Redux/selectors";
+import {getUsers} from "../../Redux/usersReducer/selectors";
 import UserCardPreview from "./UserCardPreview";
 import styles from "./Users.module.scss";
-import {fetchUsersRequest} from "../../Redux/Actions/actions";
+import {fetchUsersRequest} from "../../Redux/usersReducer/actions";
 import {useTranslation} from "react-i18next";
 import {useInView} from 'react-intersection-observer';
 

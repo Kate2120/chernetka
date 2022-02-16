@@ -6,6 +6,9 @@ import {useTranslation} from "react-i18next";
 
 function Stub() {
     let [viewItems, setViewItems] = useState(false)
+    function ChangeViewItems() {
+        setViewItems(viewItems => viewItems ? viewItems = false : viewItems = true)
+    }
     const {t} = useTranslation();
     return (
         <div className={styles.container}>
@@ -16,7 +19,7 @@ function Stub() {
                     <div className={styles.rowChoose}>
                         <div className={styles.choose}>{t("make_choice")}</div>
                         <div className={styles.button}
-                             onClick={() => setViewItems(!viewItems)}>{viewItems ? t("collapse") : t("select")}</div>
+                             onClick={ChangeViewItems}>{viewItems ? t("collapse") : t("select")}</div>
                     </div>
                     {viewItems ? <UsersList/> : ''}
                 </div>

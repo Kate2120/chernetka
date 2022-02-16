@@ -1,7 +1,7 @@
 import {Navigate} from "react-router-dom";
 import {Path} from "../../constants/path/path";
 import {useSelector} from "react-redux";
-import {getIsLogged} from "../../Redux/selectors";
+import {getIsLogged} from "../../Redux/usersReducer/selectors";
 
 const PrivateRoute = ({children}: any) => {
     let auth = useSelector(getIsLogged);
