@@ -9,8 +9,10 @@ import {
 } from "../../Redux/Actions/interfacies";
 import { Link } from "react-router-dom";
 import { Path } from "../../constants/path/path";
-import { useState } from "react";
+import {MutableRefObject, useRef, useState} from "react";
 import {useTranslation} from "react-i18next";
+import {useSelector} from "react-redux";
+import {getUsers} from "../../Redux/selectors";
 
 interface Props {
   image: Picture;
@@ -25,7 +27,7 @@ interface Props {
 export default function UserCardPreview(props: Props) {
     const {t} = useTranslation();
   return (
-    <div className={styles[`${props.gender}`]}>
+    <div className={styles[`${props.gender}`]} >
 
       <div className={styles.picture}>
           <Link to={`/user/${props.id}`}>

@@ -5,42 +5,25 @@ import UserCardPreview from "./UserCardPreview";
 import styles from "./Users.module.scss";
 import {fetchUsersRequest} from "../../Redux/Actions/actions";
 import {useTranslation} from "react-i18next";
+import {useInView} from 'react-intersection-observer';
 
 export default function Users() {
     const dispatch = useDispatch();
     let users = useSelector(getUsers);
     let [currentPage, setPage] = useState(1);
-    let [fetching, setFetching] = useState(true);
-    let isLogged = localStorage.getItem('is_logged');
+    const [ref, inView] = useInView({
+        rootMargin: '200px 0px',
+    });
     const {t} = useTranslation();
     useEffect(() => {
-        if (fetching ) {
-            if (users.length < 19) {
-                dispatch(fetchUsersRequest(currentPage));
-
-                setFetching(false);
-            }
-
+        if (inView && users.length < 19) {
+            dispatch(fetchUsersRequest(currentPage));
+            setPage(currentPage => currentPage + 1);
         }
-    }, [fetching]);
-    useEffect(() => {
-        document.addEventListener('scroll', scrollHandler);
-        return function () {
-            document.removeEventListener('scroll', scrollHandler);
-        }
-    }, []);
-    let scrollHandler = (event: Event) => {
-        if (event.target !== null) {
-            if (document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 130 && users.length < 19) {
-                setFetching(true);
-                setPage(prevState => prevState + 1);
-            }
-        }
-    };
+    }, [inView]);
     let background = "";
     return (
         <div className={styles.h1}>
-
             <h1>{t("our_users")}</h1>
             <div className={styles.container}>
                 {users.map((user, index) => (
@@ -57,6 +40,7 @@ export default function Users() {
                     </div>
                 ))}
             </div>
+            <div ref={ref}></div>
         </div>
     );
 }
