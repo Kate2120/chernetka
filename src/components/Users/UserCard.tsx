@@ -5,12 +5,23 @@ import {Link, useParams} from "react-router-dom";
 import * as React from "react";
 import {useTranslation} from "react-i18next";
 import {PathImg} from "../../constants/path/parh-images";
+import {useMemo} from "react";
 
 function UserCard() {
     const id = useParams();
     let currentId = Number(id.id);
+
     let users = useSelector(getUsers);
     let currentUser = users[Number(id.id)];
+    console.log(currentUser);
+    const dateBirth = useMemo(
+        () => new Date(currentUser.dob.date).toLocaleDateString(),
+        [currentUser.dob.date]
+    );
+    const registrationDate = useMemo(
+        () => new Date(currentUser.registered.date).toLocaleDateString(),
+        [currentUser.registered.date]
+    );
     const {t} = useTranslation();
     return (
         <div className={styles.infoBlock}>
@@ -26,7 +37,7 @@ function UserCard() {
                         <h2>{`${currentUser.name.first} ${currentUser.name.last}`}</h2>
                         <p>
                             <span>{t("date_of_birth")}: </span>
-                            {currentUser.dob.date.split("T")[0]}
+                            {dateBirth}
                         </p>
                         <p>
                             <span>{t("age")}: </span>
@@ -46,7 +57,7 @@ function UserCard() {
                         </p>
                         <p>
                             <span>{t("registration_date")}: </span>
-                            {currentUser.registered.date.split("T")[0]}
+                            {registrationDate}
                         </p>
                     </div>
                 </div>
