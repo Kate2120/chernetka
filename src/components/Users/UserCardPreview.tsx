@@ -4,15 +4,9 @@ import {
   Picture,
   UserName,
   DateBirth,
-  Registered,
-  Location,
 } from "../../Redux/Actions/interfacies";
 import { Link } from "react-router-dom";
-import { Path } from "../../constants/path/path";
-import {MutableRefObject, useRef, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {useSelector} from "react-redux";
-import {getUsers} from "../../Redux/selectors";
 
 interface Props {
   image: Picture;
@@ -21,7 +15,6 @@ interface Props {
   background: string;
   gender: string;
   id: string;
-
   user: User;
 }
 export default function UserCardPreview(props: Props) {
@@ -31,17 +24,17 @@ export default function UserCardPreview(props: Props) {
 
       <div className={styles.picture}>
           <Link to={`/user/${props.id}`}>
-        <img src={props.image.large} alt={props.name.first + " " + props.name.first} title={props.name.first + " " + props.name.first}/>
+        <img src={props.image.large} alt={`${props.name.first} ${props.name.last}`} title={`${props.name.first} ${props.name.last}`}/>
           </Link>
       </div>
       <div className={styles.preview_info}>
-        {`${props.name.first} ${props.name.first}`}
+        {`${props.name.first} ${props.name.last}`}
       </div>
       <div className={styles.preview_info}>
         {props.birth.date.split("T")[0]}
       </div>
       <div className={styles.preview_info}>
-        {props.birth.age + " years old"}
+        {`${props.birth.age} years old`}
       </div>
       <div className={styles.button} id={props.id}>
         <Link to={`/user/${props.id}`}>{t("more")}</Link>

@@ -21,7 +21,7 @@ export default function Breadcrumbs(props: PropsBreadcrumbs) {
                     <Link to={props.category}>{t(`${props.categoryName}`)}</Link>
                 </li>
                 <li>
-                    {id.id ? '- ' + users[Number(props.id)].name.first + ' ' + users[Number(props.id)].name.last : ''}
+                    {id.id ? `- ${users[Number(props.id)].name.first} ${users[Number(props.id)].name.last}` : ''}
                 </li>
             </ul>
         </div>

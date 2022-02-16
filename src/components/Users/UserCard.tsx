@@ -20,10 +20,10 @@ function UserCard() {
             <div className={styles[`${users[currentId].gender}`]}>
                 <div className={styles.rowInfo}>
                     <div className={styles.image}>
-                        <img src={currentUser.picture.large} alt={currentUser.name.first + " " + currentUser.name.last} title={currentUser.name.first + " " + currentUser.name.last}/>
+                        <img src={currentUser.picture.large} alt={`${currentUser.name.first} ${currentUser.name.last}`} title={`${currentUser.name.first} ${currentUser.name.last}`}/>
                     </div>
                     <div className={styles.info}>
-                        <h2>{currentUser.name.first + " " + currentUser.name.last}</h2>
+                        <h2>{`${currentUser.name.first} ${currentUser.name.last}`}</h2>
                         <p>
                             <span>{t("date_of_birth")}: </span>
                             {currentUser.dob.date.split("T")[0]}
@@ -38,7 +38,7 @@ function UserCard() {
                         </p>
                         <p>
                             <span>{t("address")}: </span>
-                            {currentUser.location.state + ", " + currentUser.location.city}
+                            {`${currentUser.location.state}, ${currentUser.location.city}`}
                         </p>
                         <p>
                             <span>{t("phone")}: </span>
