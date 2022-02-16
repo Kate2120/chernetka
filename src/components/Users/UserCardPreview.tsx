@@ -2,9 +2,14 @@ import styles from "./Users.module.scss";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {PropsUserCardPreview} from "./interfacies";
+import {useMemo} from "react";
 
 export default function UserCardPreview(props: PropsUserCardPreview) {
     const {t} = useTranslation();
+    const dateBirth = useMemo(
+        () => new Date(props.birth.age).toLocaleDateString(),
+        [props.birth.age]
+    );
     return (
         <div className={styles[`${props.gender}`]}>
 
@@ -18,7 +23,7 @@ export default function UserCardPreview(props: PropsUserCardPreview) {
                 {`${props.name.first} ${props.name.last}`}
             </div>
             <div className={styles.preview_info}>
-                {props.birth.date.split("T")[0]}
+                {dateBirth}
             </div>
             <div className={styles.preview_info}>
                 {`${props.birth.age} years old`}

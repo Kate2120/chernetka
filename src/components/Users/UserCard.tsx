@@ -17,8 +17,8 @@ function UserCard() {
         [currentUser.dob.date]
     );
     const registrationDate = useMemo(
-        () => new Date(currentUser.registered.date).toLocaleDateString(),
-        [currentUser.registered.date]
+        () => new Date(currentUser.dob.date).toLocaleDateString(),
+        [currentUser.dob.date]
     );
     const {t} = useTranslation();
     return (

@@ -19,6 +19,7 @@ export default function Users() {
         if (inView && users.length < 19) {
             dispatch(fetchUsersRequest(currentPage));
             setPage(currentPage => currentPage + 1);
+
         }
     }, [inView]);
     let background = "";

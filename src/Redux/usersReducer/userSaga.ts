@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {Types} from './Types';
-import {User, authRequest, fetchUsersError, dataError} from "./interfacies";
-import {fetchUsersSuccess, logoutSuccess, sendDataAuthSuccess, fetchUsersFail} from './actions';
+import {User, authRequest, dataError} from "./interfacies";
+import {fetchUsersSuccess, logoutSuccess, sendDataAuthSuccess} from './actions';
 import errorHandler from './handlerError'
 import {fetchUsers} from '../../Api/api';
 
