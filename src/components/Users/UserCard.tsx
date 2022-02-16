@@ -1,6 +1,4 @@
 import styles from "./Users.module.scss";
-import {useSelector} from "react-redux";
-import {getUsers} from "../../Redux/usersReducer/selectors";
 import {Link, useParams} from "react-router-dom";
 import * as React from "react";
 import {useTranslation} from "react-i18next";
@@ -10,7 +8,7 @@ import {useMemo} from "react";
 function UserCard() {
     const id = useParams();
     let currentId = Number(id.id);
-    let users = useSelector(getUsers);
+    let users = localStorage.getItem('users') ? JSON.parse(localStorage['users']) : [];
     let currentUser = users[Number(id.id)];
     const dateBirth = useMemo(
         () => new Date(currentUser.dob.date).toLocaleDateString(),
@@ -29,7 +27,8 @@ function UserCard() {
             <div className={styles[`${users[currentId].gender}`]}>
                 <div className={styles.rowInfo}>
                     <div className={styles.image}>
-                        <img src={currentUser.picture.large} alt={`${currentUser.name.first} ${currentUser.name.last}`} title={`${currentUser.name.first} ${currentUser.name.last}`}/>
+                        <img src={currentUser.picture.large} alt={`${currentUser.name.first} ${currentUser.name.last}`}
+                             title={`${currentUser.name.first} ${currentUser.name.last}`}/>
                     </div>
                     <div className={styles.info}>
                         <h2>{`${currentUser.name.first} ${currentUser.name.last}`}</h2>
@@ -68,7 +67,7 @@ function UserCard() {
                     </Link>
                     <Link to={currentId < users.length - 1 ? `/user/${currentId + 1}` : ''}>
                         <div className={currentId < users.length - 1 ? styles.button : styles.inactive}>
-                           <p> {t("next")}</p>
+                            <p> {t("next")}</p>
                             <img src={PathImg.ARROW_RIGHT}/>
                         </div>
                     </Link>
@@ -78,4 +77,4 @@ function UserCard() {
     );
 }
 
-export default UserCard;
+export default React.memo(UserCard);

@@ -5,7 +5,7 @@ import {getIsLogged} from "../../Redux/usersReducer/selectors";
 
 const PrivateRoute = ({children}: any) => {
     let auth = useSelector(getIsLogged);
-    if (auth === 'true') {
+    if (auth === 'true' && auth !== null) {
         return children;
     }
     return <Navigate to={Path.LOGIN}/>

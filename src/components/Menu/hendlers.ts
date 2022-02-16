@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {changeLanguage} from "i18next";
 
 export function handleLogoutChangeLanguage(event: React.MouseEvent<HTMLElement>) {

@@ -5,15 +5,18 @@ export interface UserName {
     first: string,
     last: string,
 }
+
 export interface DateBirth {
     date: string,
     age: string,
 }
+
 export interface Picture {
     large: string,
     medium: string,
     thumbnail: string,
 }
+
 export interface Location {
     street: string,
     city: string,
@@ -21,10 +24,12 @@ export interface Location {
     postcode: string,
     coordinates: Coordinates,
 }
+
 export interface Coordinates {
     latitude: string,
     longitude: string,
 }
+
 export interface Registered {
     date: string,
     age: string
@@ -40,6 +45,7 @@ export interface User {
     phone: string
 
 }
+
 export interface State {
     users: {
         users: User[],

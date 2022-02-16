@@ -10,6 +10,7 @@ export default function UserCardPreview(props: PropsUserCardPreview) {
         () => new Date(props.birth.age).toLocaleDateString(),
         [props.birth.age]
     );
+
     return (
         <div className={styles[`${props.gender}`]}>
 

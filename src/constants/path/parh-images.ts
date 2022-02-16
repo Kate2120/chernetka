@@ -6,5 +6,4 @@ export enum PathImg {
     LOGOUT = "./logout.png",
     ARROW_LEFT = "../arrow-left.png",
     ARROW_RIGHT = "../arrow-right.png"
-
 }

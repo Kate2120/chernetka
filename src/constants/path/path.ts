@@ -4,5 +4,4 @@ export enum Path {
     USERS = '/users',
     USER_INFO = '/user/:id',
     USER_INFO_EMPTY = '/user'
-
 }

@@ -14,16 +14,19 @@ function AllRoutes() {
     return (
         <div>
             {auth === 'true' ? <Header/> : ''}
-        <Routes>
-        <Route path={Path.LOGIN} element={auth === 'false' ? <LoginPage/> : <Navigate to={Path.HOME}/>}/>
-    <Route path={Path.HOME} element={<PrivateRoute>
-    <Home/>
-    </PrivateRoute>}/>
-    <Route path={Path.USER_INFO} element={<PrivateRoute><UserInfo/></PrivateRoute>}/>
-    <Route path={Path.USER_INFO_EMPTY} element={<PrivateRoute><UserInfo/></PrivateRoute>}/>
-    <Route path='*' element={auth === 'true' ? <Navigate to={Path.HOME}/> : <Navigate to={Path.LOGIN}/>}/>
-    </Routes>
-    </div>
-);
+            <Routes>
+                <Route path={Path.LOGIN}
+                       element={auth === 'false' || auth === null ? <LoginPage/> : <Navigate to={Path.HOME}/>}/>
+                <Route path={Path.HOME} element={<PrivateRoute>
+                    <Home/>
+                </PrivateRoute>}/>
+                <Route path={Path.USER_INFO} element={<PrivateRoute><UserInfo/></PrivateRoute>}/>
+                <Route path={Path.USER_INFO_EMPTY} element={<PrivateRoute><UserInfo/></PrivateRoute>}/>
+                <Route path='*'
+                       element={auth === 'true' ? <Navigate to={Path.HOME}/> : <Navigate to={Path.LOGIN}/>}/>
+            </Routes>
+        </div>
+    );
 }
+
 export default AllRoutes;

@@ -12,7 +12,7 @@ ReactDOM.render(
         <Provider store={store}>
             <Router>
                 <Suspense fallback={<div>Loading...</div>}>
-                <App/>
+                    <App/>
                 </Suspense>
             </Router>
         </Provider>

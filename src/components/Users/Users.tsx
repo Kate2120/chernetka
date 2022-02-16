@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getUsers} from "../../Redux/usersReducer/selectors";
 import UserCardPreview from "./UserCardPreview";
@@ -11,6 +11,10 @@ export default function Users() {
     const dispatch = useDispatch();
     let users = useSelector(getUsers);
     let [currentPage, setPage] = useState(1);
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(users));
+    }, [users]);
+
     const [ref, inView] = useInView({
         rootMargin: '200px 0px',
     });
@@ -19,7 +23,6 @@ export default function Users() {
         if (inView && users.length < 19) {
             dispatch(fetchUsersRequest(currentPage));
             setPage(currentPage => currentPage + 1);
-
         }
     }, [inView]);
     let background = "";

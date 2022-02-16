@@ -8,7 +8,7 @@ import {
     LogoutSuccess,
     fetchUsersError, dataError
 } from './interfacies';
-import {Simulate} from "react-dom/test-utils";
+
 import {FormikValues} from "formik";
 
 

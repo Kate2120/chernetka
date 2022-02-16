@@ -4,6 +4,7 @@ export interface Action {
     type: string;
     payload: any;
 }
+
 export interface UserName {
     title: string,
     first: string,
@@ -72,9 +73,9 @@ export interface GetUsersSuccess {
 }
 
 export interface dataAuth {
-        name: string,
-        password: string,
-        confirmPassword: string,
+    name: string,
+    password: string,
+    confirmPassword: string,
 }
 
 export interface authRequest {
